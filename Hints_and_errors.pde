@@ -1,0 +1,8 @@
+
+void checkErrors(){
+  
+}
+
+void giveHints(){
+  
+}
