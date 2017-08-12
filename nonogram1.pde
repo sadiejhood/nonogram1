@@ -26,19 +26,28 @@ void mouseDragged(){
   if(!isDone){
   if(mouseButton == LEFT)
    game.clicking();
+  if(mouseButton == RIGHT)
+    game.rightClick();
   }
 }
 
 void mousePressed(){
   if(!isDone){
-  if(mouseButton == LEFT)
+  if(mouseButton == LEFT){
    game.clicking();
   }
+  if(mouseButton == RIGHT){
+    game.rightClick();
+  }
+}
 }
 
 void keyPressed(){
   if(key == 'c'){
     currentTime = frameCount;
+  }
+  if(key == 'r'){
+    game.clearBoard();
   }
 }
 

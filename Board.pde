@@ -39,9 +39,12 @@ class board{
           num++;
         }
         else if(num > 0){
+          if(num >= 10)
+            times++;
           text(num, 270 - times*10, y*20 + 95);
           num = 0;
           times++;
+
         }
      }
      times = 0;
@@ -73,6 +76,12 @@ class board{
        
      }
    }
+   for(int i = 0; i <= 25; i+=5){
+     strokeWeight(3);
+     line(i*20 + 280, 80, i*20 + 280, height-20);
+     line(280, i*20 + 80, width-20, i*20 + 80);
+     strokeWeight(1);
+   }
  }
  
  void clicking(){
@@ -86,6 +95,30 @@ class board{
               image[(x-280)/20][(y - 80)/20] = 3; 
            }
            else if(image[(x-280)/20][(y - 80)/20] == 2){
+              //image[(x-280)/20][(y - 80)/20] = 1;
+              //fill(255);
+           }
+           else{
+              //image[(x-280)/20][(y - 80)/20] = 0;
+              //fill(255);
+           }
+         rect(x,y,20,20);
+       }
+     }
+   }
+ }
+ 
+ void rightClick(){
+   for(int x = 280; x < width - 20; x += 20){
+     for(int y = 80; y < height - 20; y += 20){
+       if(isIn(x,y,20,20)){
+         if(image[(x-280)/20][(y - 80)/20] == 1){
+              //image[(x-280)/20][(y - 80)/20] = 2; 
+           }
+           else if(image[(x-280)/20][(y - 80)/20] == 0){
+              //image[(x-280)/20][(y - 80)/20] = 3; 
+           }
+           else if(image[(x-280)/20][(y - 80)/20] == 2){
               image[(x-280)/20][(y - 80)/20] = 1;
               fill(255);
            }
@@ -96,7 +129,7 @@ class board{
          rect(x,y,20,20);
        }
      }
-   }
+   }   
  }
  
  void checkErrors(){
@@ -121,4 +154,17 @@ class board{
    }
    return true;
  }
+
+void clearBoard(){
+   for(int x = 0; x < image.length; x++){
+     for(int y = 0; y < image.length; y++){
+       if(image[x][y] == 2){
+          image[x][y] = 1; 
+       }
+       else if(image[x][y] == 3){
+          image[x][y] = 0; 
+       }
+     }
+   }
+}
 }
