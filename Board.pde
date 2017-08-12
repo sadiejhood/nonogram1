@@ -58,10 +58,19 @@ class board{
        }
        else //user has highlighted
          fill(0); 
+       if(mouseX > x*20 +280 && mouseX < x*20 + 300)
+         fill(230);
+       if(mouseY > y*20 + 80 && mouseY < y*20 + 100)
+         fill(230);
        if(isIn(x*20 + 280, y*20 + 80, 20,20)){
          fill(100);
        }
+       if(image[x][y] >= 2){ //if hasn't been selected
+         stroke(0);
+         fill(0);
+       }
        rect(x*20 + 280, y*20 + 80, 20,20);
+       
      }
    }
  }
@@ -100,5 +109,16 @@ class board{
      }
    }
   delay(1000);
+ }
+ 
+ boolean won(){
+   for(int x = 0; x < 25; x++){
+      for(int y = 0; y < 25; y++){
+        if(image[x][y] == 1 || image[x][y] == 3){
+           return false; 
+        }
+      }
+   }
+   return true;
  }
 }

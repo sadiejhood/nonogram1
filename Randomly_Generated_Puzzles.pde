@@ -3,7 +3,7 @@ int [][] generator(){
   
   for(int x = 0; x < board[1].length; x++){
      for(int y = 0; y < board.length; y++){
-        if(random(100) < 20){
+        if(random(100) < 75){
             board[x][y] = 1;
         }
      }
