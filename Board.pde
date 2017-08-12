@@ -32,6 +32,21 @@ class board{
      times = 0;
      num = 0;
    }
+   
+   for(int y = image.length - 1; y >= 0; y--){
+     for(int x = 0; x < image.length; x++){
+        if( image[x][y] == 1 ){
+          num++;
+        }
+        else if(num > 0){
+          text(num, 270 - times*10, y*20 + 95);
+          num = 0;
+          times++;
+        }
+     }
+     times = 0;
+     num = 0;
+   }
  }
  
  void drawBoard(){
@@ -73,5 +88,17 @@ class board{
        }
      }
    }
+ }
+ 
+ void checkErrors(){
+   for(int x = 0; x < image[1].length; x++){
+     for(int y = 0; y < image.length; y++){
+        if(image[x][y] == 3){
+           fill(255,0,0);
+           rect(x*20 + 280, y*20 + 80, 20,20);
+        }
+     }
+   }
+  delay(1000);
  }
 }

@@ -1,8 +1,3 @@
-
-void checkErrors(){
-  
-}
-
 void giveHints(){
   
 }
